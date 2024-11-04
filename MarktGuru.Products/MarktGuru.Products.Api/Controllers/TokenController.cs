@@ -21,9 +21,16 @@ namespace MarktGuru.Products.Api.Controllers
         [Route("authenticate")]
         [ProducesResponseType(typeof(TokenResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Authenticate(AuthenticateRequest request)
         {
             _logger.LogInformation("Authenticating user {Username}", request.Username);
+
+            if (string.IsNullOrWhiteSpace(request.Username) || string.IsNullOrWhiteSpace(request.Password))
+            {
+                _logger.LogWarning("Invalid request");
+                return BadRequest();
+            }
 
             var token = _authService.Authenticate(request.Username, request.Password);
 
