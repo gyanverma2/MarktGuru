@@ -1,0 +1,6 @@
+@MarktGuru.Products.Api_HostAddress = http://localhost:5283
+
+GET {{MarktGuru.Products.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
