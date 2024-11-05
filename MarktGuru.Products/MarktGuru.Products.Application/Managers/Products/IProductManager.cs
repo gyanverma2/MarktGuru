@@ -11,5 +11,6 @@ namespace MarktGuru.Products.Application.Managers.Products
         public Task<Product> CreateProductAsync(CreateProductCommand product);
         public Task<Product> UpdateProductAsync(UpdateProductCommand product);
         public Task<ProductPrice> UpdateProductPrice(UpdateProductPriceCommand price);
+        public Task<bool> DeleteProductAsync(int id);
     }
 }

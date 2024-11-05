@@ -80,7 +80,7 @@ namespace MarktGuru.Products.Api.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns>Return a product</returns>
-        [HttpPost("create")]
+        [HttpPost("")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -97,7 +97,7 @@ namespace MarktGuru.Products.Api.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns>Return updated product</returns>
-        [HttpPut("update")]
+        [HttpPut("")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -124,6 +124,25 @@ namespace MarktGuru.Products.Api.Controllers
             var result = await _productManager.UpdateProductPrice(request);
             _logger.LogInformation("Product price updated successfully");
             return Ok(result);
+        }
+
+        /// <summary>
+        /// Remove a product
+        /// </summary>
+        /// <param name="id">product id</param>
+        /// <returns>204</returns>
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProductAsync(int id)
+        {
+            _logger.LogInformation("Deleting product");
+            if (id < 1)
+            {
+                _logger.LogWarning("Invalid product id");
+                return BadRequest("Invalid product id");
+            }
+            var result = await _productManager.DeleteProductAsync(id);
+            _logger.LogInformation("Product deleted successfully");
+            return result ? Ok(new { message = "Product deleted successfully", productId = id }) : BadRequest("Invalid Product Id");
         }
 
     }
