@@ -7,7 +7,7 @@ namespace MarktGuru.Products.Application.Validator.Products.Queries
     {
         public GetProductByIdQueryValidator()
         {
-            RuleFor(x => x.Id).GreaterThan(0);
+            RuleFor(x => x.Id).GreaterThan(0).WithMessage("Id must be greater than 0");
         }
     }
 }

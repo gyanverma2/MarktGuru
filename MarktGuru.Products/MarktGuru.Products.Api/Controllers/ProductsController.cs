@@ -66,12 +66,12 @@ namespace MarktGuru.Products.Api.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             _logger.LogInformation("Getting product by id");
-            var product = await _productManager.GetProductByIdAsync(id);
-            if (product == null)
+            if (id < 1)
             {
-                _logger.LogError("Product not found");
-                return NotFound();
+                _logger.LogWarning("Invalid product id");
+                return BadRequest("Invalid product id");
             }
+            var product = await _productManager.GetProductByIdAsync(id);
             _logger.LogInformation("Returning product by id");
             return Ok(product);
         }
