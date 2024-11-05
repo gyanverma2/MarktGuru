@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MarktGuru.Products.Api.Controllers
 {
+    /// <summary>
+    /// Token Api
+    /// </summary>
+    /// <param name="authService"></param>
+    /// <param name="logger"></param>
     [Route(ApiRoutes.BaseV1)]
     [ApiController]
     public class TokenController(IAuthService authService,ILogger<TokenController> logger) : ControllerBase
