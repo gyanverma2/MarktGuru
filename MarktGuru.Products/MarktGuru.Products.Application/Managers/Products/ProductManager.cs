@@ -1,5 +1,5 @@
 ﻿using MarktGuru.Products.Application.Data.Products.Queries;
-using MarktGuru.Products.Common.Enums;
+using MarktGuru.Products.Application.Handlers.Products.Queries;
 using MarktGuru.Products.Common.Wrapper;
 using MarktGuru.Products.Domain.Models;
 using MediatR;
@@ -16,6 +16,10 @@ namespace MarktGuru.Products.Application.Managers.Products
         public async Task<PaginatedResult<Product>> GetProductsAsync(int pageNumber, int pageSize)
         {
             return await _mediator.Send(new GetProductQuery(pageNumber, pageSize));
+        }
+        public async Task<Product> GetProductByIdAsync(int id)
+        {
+            return await _mediator.Send(new GetProductByIdQuery(id));
         }
     }
 }
