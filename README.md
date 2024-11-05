@@ -76,6 +76,7 @@ duplicate product names are not allowed.
   <li>Redis Catch imeplementation (I do not have any active server)</li>
   <li>Code Cleanup and duplicate code removal</li>
   <li>SonarQube Analysis</li>
+  <li>Improve product price based on source system e.g web, mobile, tablet or any similar business logic</li>
  </ul>
 
  Thanks
