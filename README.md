@@ -5,16 +5,17 @@ Develop a .NET API project (preferably .NET Core) to manage products with typica
 ## Requirments
 - [x] Authentication: For this demo project, you can hard-code the username and password
 within the system. Database access isn’t necessary for authentication in this case (consider
-usage by web and native clients).
+usage by web and native clients). [Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/1)
 - [x] Product List: Retrieves a list of products including ID, Name, Availability, and Price. This
-should be accessible to anonymous users as well.
+should be accessible to anonymous users as well. [Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/2)
 - [x] Product Details by ID: Returns details of a product, including ID, Name, Availability, Price,
-Description, and DateCreated, available to anonymous users.
+Description, and DateCreated, available to anonymous users.[Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/3)
 - [x] Add Product: Allows authenticated users to add a new product to the system. Ensure that
-duplicate product names are not allowed.
-- [x] Update Product: Enables authenticated users to update product information.
-- [x] Delete Product: Allows authenticated users to remove a product from the system.
+duplicate product names are not allowed. [Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/4)
+- [x] Update Product: Enables authenticated users to update product information. [Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/5)
+- [x] Delete Product: Allows authenticated users to remove a product from the system. [Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/6)
 
+Dev => Master [Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/7)
 
 ## Tech-Stack To Understand
 <ul>
