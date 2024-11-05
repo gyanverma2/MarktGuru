@@ -53,7 +53,13 @@ namespace MarktGuru.Products.Api.Controllers
             return Ok(products);
         }
 
+        /// <summary>
+        /// Get product by id
+        /// </summary>
+        /// <param name="id">Product Id</param>
+        /// <returns>Return product based on provided id</returns>
         [HttpGet("{id}")]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
