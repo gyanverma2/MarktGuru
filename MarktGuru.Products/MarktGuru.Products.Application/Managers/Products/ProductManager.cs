@@ -26,5 +26,13 @@ namespace MarktGuru.Products.Application.Managers.Products
         {
             return await _mediator.Send(product);
         }
+        public async Task<Product> UpdateProductAsync(UpdateProductCommand product)
+        {
+            return await _mediator.Send(product);
+        }
+        public async Task<ProductPrice> UpdateProductPrice(UpdateProductPriceCommand price)
+        {
+            return await _mediator.Send(price);
+        }
     }
 }

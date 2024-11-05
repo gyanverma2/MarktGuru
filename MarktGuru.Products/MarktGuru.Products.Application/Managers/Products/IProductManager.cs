@@ -9,5 +9,7 @@ namespace MarktGuru.Products.Application.Managers.Products
         public Task<PaginatedResult<Product>> GetProductsAsync(int pageNumber, int pageSize);
         public Task<Product> GetProductByIdAsync(int id);
         public Task<Product> CreateProductAsync(CreateProductCommand product);
+        public Task<Product> UpdateProductAsync(UpdateProductCommand product);
+        public Task<ProductPrice> UpdateProductPrice(UpdateProductPriceCommand price);
     }
 }

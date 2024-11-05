@@ -92,5 +92,39 @@ namespace MarktGuru.Products.Api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Update a product
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns>Return updated product</returns>
+        [HttpPut("update")]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UpdateProductAsync(UpdateProductCommand request)
+        {
+            _logger.LogInformation("Updating product");
+            var result = await _productManager.UpdateProductAsync(request);
+            _logger.LogInformation("Product updated successfully");
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Update product price
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns>Return updated price</returns>
+        [HttpPut("update-price")]
+        [ProducesResponseType(typeof(ProductPrice), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UpdateProductPrice(UpdateProductPriceCommand request)
+        {
+            _logger.LogInformation("Updating product price");
+            var result = await _productManager.UpdateProductPrice(request);
+            _logger.LogInformation("Product price updated successfully");
+            return Ok(result);
+        }
+
     }
 }
