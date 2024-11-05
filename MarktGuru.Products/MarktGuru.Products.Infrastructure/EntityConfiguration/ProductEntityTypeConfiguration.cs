@@ -18,6 +18,7 @@ namespace MarktGuru.Products.Infrastructure.EntityConfiguration
             builder.Property(p => p.ModifiedBy).HasMaxLength(100);
             builder.Property(p => p.CreatedAt).IsRequired().HasDefaultValue(DateTime.UtcNow);
             builder.Property(p => p.ModifiedAt);
+            builder.HasMany(p => p.Prices).WithOne(p => p.Product).HasForeignKey(p => p.ProductId);
 
             builder.HasIndex(p => p.Name).IsUnique();
             builder.ToTable("Products");

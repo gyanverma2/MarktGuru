@@ -2,6 +2,7 @@
 using System.Net;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace MarktGuru.Products.Common.Middleware
 {
@@ -25,7 +26,12 @@ namespace MarktGuru.Products.Common.Middleware
                 context.Response.StatusCode = (int)apiEx.StatusCode;
                 await HandleExceptionAsync(context, apiEx);
             }
-            catch(AuthenticationException ex)
+            catch (ValidationException ex)
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                await HandleExceptionAsync(context, ex);
+            }
+            catch (AuthenticationException ex)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 await HandleExceptionAsync(context, ex);
