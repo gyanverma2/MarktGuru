@@ -23,7 +23,6 @@ namespace MarktGuru.Products.Infrastructure.EntityConfiguration
             builder.Property(p => p.ModifiedBy).HasMaxLength(100);
             builder.Property(p => p.CreatedAt).IsRequired().HasDefaultValue(DateTime.UtcNow);
             builder.Property(p => p.ModifiedAt);
-            builder.HasOne(p => p.Product).WithMany().HasForeignKey(p => p.ProductId);
 
             builder.HasIndex(p => new { p.ProductId, p.BeginDate, p.SourceTypeId }).IsUnique();
             

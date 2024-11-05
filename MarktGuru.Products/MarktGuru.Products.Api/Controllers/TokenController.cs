@@ -17,6 +17,7 @@ namespace MarktGuru.Products.Api.Controllers
         /// </summary>
         /// <param name="request">AuthenticateRequest</param>
         /// <returns>TokenResponse</returns>
+        /// <response>Return authentication token</response>
         [HttpPost]
         [Route("authenticate")]
         [ProducesResponseType(typeof(TokenResponse), StatusCodes.Status200OK)]
