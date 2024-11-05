@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Diagnostics.CodeAnalysis;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace MarktGuru.Products.Api.Extensions
 {
@@ -23,17 +24,13 @@ namespace MarktGuru.Products.Api.Extensions
         {
             services.AddApplicationLayer();
         }
+        
         public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-
             var jwtSettings = configuration.GetSection("JwtSettings");
             var secretKey = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"] ?? string.Empty);
 
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -47,6 +44,7 @@ namespace MarktGuru.Products.Api.Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(secretKey)
                 };
             });
+            services.AddAuthorization();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MarktGuru.Products.Application.Data.Products.Queries;
+using MarktGuru.Products.Application.Handlers.Products.Commands;
 using MarktGuru.Products.Application.Handlers.Products.Queries;
 using MarktGuru.Products.Common.Wrapper;
 using MarktGuru.Products.Domain.Models;
@@ -20,6 +21,10 @@ namespace MarktGuru.Products.Application.Managers.Products
         public async Task<Product> GetProductByIdAsync(int id)
         {
             return await _mediator.Send(new GetProductByIdQuery(id));
+        }
+        public async Task<Product> CreateProductAsync(CreateProductCommand product)
+        {
+            return await _mediator.Send(product);
         }
     }
 }

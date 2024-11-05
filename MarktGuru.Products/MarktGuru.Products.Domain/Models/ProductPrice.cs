@@ -1,5 +1,6 @@
 ﻿using MarktGuru.Products.Common.Enums;
 using MarktGuru.Products.Domain.Shared;
+using System.Text.Json.Serialization;
 
 namespace MarktGuru.Products.Domain.Models
 {
@@ -14,6 +15,8 @@ namespace MarktGuru.Products.Domain.Models
         public DateTime BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsApproved { get; set; }
-        public Product Product { get; set; } = null!;
+
+        [JsonIgnore]
+        public virtual Product Product { get; set; } = null!;
     }
 }

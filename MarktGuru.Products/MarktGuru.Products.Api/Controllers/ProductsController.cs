@@ -1,6 +1,6 @@
 ﻿using MarktGuru.Products.Api.Constants;
+using MarktGuru.Products.Application.Handlers.Products.Commands;
 using MarktGuru.Products.Application.Managers.Products;
-using MarktGuru.Products.Common.Enums;
 using MarktGuru.Products.Common.Wrapper;
 using MarktGuru.Products.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -63,7 +63,7 @@ namespace MarktGuru.Products.Api.Controllers
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
             _logger.LogInformation("Getting product by id");
             if (id < 1)
@@ -74,6 +74,22 @@ namespace MarktGuru.Products.Api.Controllers
             var product = await _productManager.GetProductByIdAsync(id);
             _logger.LogInformation("Returning product by id");
             return Ok(product);
+        }
+        /// <summary>
+        /// Create a new product
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns>Return a product</returns>
+        [HttpPost("create")]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> CreateProductAsync(CreateProductCommand request)
+        {
+           _logger.LogInformation("Creating product");
+            var result = await _productManager.CreateProductAsync(request);
+            _logger.LogInformation("Product created successfully");
+            return Ok(result);
         }
 
     }

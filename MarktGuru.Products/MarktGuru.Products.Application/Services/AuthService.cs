@@ -46,19 +46,22 @@ namespace MarktGuru.Products.Application.Services
             {
             new Claim(JwtRegisteredClaimNames.Sub, username),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(JwtRegisteredClaimNames.Exp, expiration.ToString())
+            new Claim(JwtRegisteredClaimNames.Exp, expiration.ToString()),
+            new Claim(ClaimTypes.Name, username)
             };
 
-            var token = new JwtSecurityToken(
-                issuer: jwtSettings["Issuer"],
-                audience: jwtSettings["Audience"],
-                claims: claims,
-                expires: expiration,
-                signingCredentials: new SigningCredentials(new SymmetricSecurityKey(secretKey), SecurityAlgorithms.HmacSha256)
-            );
-
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Issuer = jwtSettings["Issuer"],
+                Audience = jwtSettings["Audience"],
+                Subject = new ClaimsIdentity(claims),
+                Expires = expiration,
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(secretKey), SecurityAlgorithms.HmacSha256)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
             _logger.LogInformation("AuthService: JWT token generated successfully");
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return tokenHandler.WriteToken(token);
         }
     }
 }
