@@ -52,5 +52,29 @@ namespace MarktGuru.Products.Api.Controllers
             _logger.LogInformation("Returning all products");
             return Ok(products);
         }
+
+        /// <summary>
+        /// Get product by id
+        /// </summary>
+        /// <param name="id">Product Id</param>
+        /// <returns>Return product based on provided id</returns>
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetById(int id)
+        {
+            _logger.LogInformation("Getting product by id");
+            if (id < 1)
+            {
+                _logger.LogWarning("Invalid product id");
+                return BadRequest("Invalid product id");
+            }
+            var product = await _productManager.GetProductByIdAsync(id);
+            _logger.LogInformation("Returning product by id");
+            return Ok(product);
+        }
+
     }
 }

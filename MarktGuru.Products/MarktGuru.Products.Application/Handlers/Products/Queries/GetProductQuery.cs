@@ -1,5 +1,4 @@
-﻿using MarktGuru.Products.Common.Enums;
-using MarktGuru.Products.Common.Wrapper;
+﻿using MarktGuru.Products.Common.Wrapper;
 using MarktGuru.Products.Domain.Models;
 using MarktGuru.Products.Infrastructure.Context;
 using MediatR;

@@ -21,21 +21,6 @@ namespace MarktGuru.Products.Common.Middleware
             {
                 await _next(context);
             }
-            catch(ApiException apiEx)
-            {
-                context.Response.StatusCode = (int)apiEx.StatusCode;
-                await HandleExceptionAsync(context, apiEx);
-            }
-            catch (ValidationException ex)
-            {
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                await HandleExceptionAsync(context, ex);
-            }
-            catch (AuthenticationException ex)
-            {
-                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                await HandleExceptionAsync(context, ex);
-            }
             catch (Exception ex)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
@@ -46,6 +31,29 @@ namespace MarktGuru.Products.Common.Middleware
         private Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
             context.Response.ContentType = "application/json";
+
+            int statusCode;
+
+            switch (ex)
+            {
+                case RecordNotFoundException:
+                    statusCode = (int)HttpStatusCode.NotFound;
+                    break;
+                case ApiException apiEx:
+                    statusCode = (int)apiEx.StatusCode;
+                    break;
+                case ValidationException:
+                    statusCode = (int)HttpStatusCode.BadRequest;
+                    break;
+                case AuthenticationException:
+                    statusCode = (int)HttpStatusCode.Unauthorized;
+                    break;
+                default:
+                    statusCode = (int)HttpStatusCode.InternalServerError;
+                    break;
+            }
+
+            context.Response.StatusCode = statusCode;
 
             var result = JsonSerializer.Serialize(new
             {
