@@ -82,5 +82,19 @@ namespace MarktGuru.Products.Api.Test.Controllers
             Assert.IsType<OkObjectResult>(result);
             Assert.NotNull(result);
         }
+        [Fact]
+        public async Task DeleteProductAsync_SuccessTest()
+        {
+            var mockProductManager = new Mock<IProductManager>();
+            var mockLogger = new Mock<ILogger<ProductsController>>();
+            mockProductManager.Setup(x => x.DeleteProductAsync(It.IsAny<int>()))
+                .ReturnsAsync(true);
+
+            var controller = new ProductsController(mockProductManager.Object, mockLogger.Object);
+            var result = await controller.DeleteProductAsync(1);
+
+            Assert.IsType<OkObjectResult>(result);
+            Assert.NotNull(result);
+        }
     }
 }

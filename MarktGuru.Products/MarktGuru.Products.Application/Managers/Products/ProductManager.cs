@@ -34,5 +34,9 @@ namespace MarktGuru.Products.Application.Managers.Products
         {
             return await _mediator.Send(price);
         }
+        public async Task<bool> DeleteProductAsync(int id)
+        {
+            return await _mediator.Send(new DeleteProductCommand(id));
+        }
     }
 }
