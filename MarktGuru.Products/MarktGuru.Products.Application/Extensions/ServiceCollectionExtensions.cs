@@ -6,8 +6,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using System;
-using MarktGuru.Products.Application.Data.Products.Queries;
 using MarktGuru.Products.Application.Validator.Products.Queries;
 namespace MarktGuru.Products.Application.Extensions
 {
@@ -16,6 +14,7 @@ namespace MarktGuru.Products.Application.Extensions
     {
         public static void AddApplicationLayer(this IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddProductDbContext();
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             services.AddScoped<IAuthService, AuthService>();

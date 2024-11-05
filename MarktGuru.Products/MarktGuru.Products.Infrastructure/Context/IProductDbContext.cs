@@ -6,6 +6,7 @@ namespace MarktGuru.Products.Infrastructure.Context
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductPrice> ProductPrice { get; set; }
+        public DbContext DbContext { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

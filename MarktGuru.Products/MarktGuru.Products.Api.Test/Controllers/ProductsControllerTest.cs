@@ -34,7 +34,7 @@ namespace MarktGuru.Products.Api.Test.Controllers
                 .ReturnsAsync(new Product());
 
             var controller = new ProductsController(mockProductManager.Object, mockLogger.Object);
-            var result = await controller.GetById(1);
+            var result = await controller.GetByIdAsync(1);
 
             Assert.IsType<OkObjectResult>(result);
             Assert.NotNull(result);
