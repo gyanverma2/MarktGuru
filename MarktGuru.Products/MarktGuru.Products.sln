@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarktGuru.Products.Api", "MarktGuru.Products.Api\MarktGuru.Products.Api.csproj", "{6A38A7DC-E970-4D3E-8F94-5C77CCF162D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarktGuru.Products.Infrastructure", "MarktGuru.Products.Infrastructure\MarktGuru.Products.Infrastructure.csproj", "{3ADE0C1A-23AB-4826-BFFF-01087D4A62C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarktGuru.Products.Domain", "MarktGuru.Products.Domain\MarktGuru.Products.Domain.csproj", "{6B40F25C-3159-4BAF-BA69-D615EFD00809}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarktGuru.Products.Common", "MarktGuru.Products.Common\MarktGuru.Products.Common.csproj", "{788D5709-2952-4845-9D8A-A8A34944CFD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarktGuru.Products.Application", "MarktGuru.Products.Application\MarktGuru.Products.Application.csproj", "{E15DF672-B09E-4076-BA6B-60D90F50F3E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5FD748C5-F387-4B44-83B0-72C558110E1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketGuru.Products.Common.Test", "MarketGuru.Products.Common.Test\MarketGuru.Products.Common.Test.csproj", "{D7A19E6A-0EC4-46DE-96FE-FD12F0A6E524}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarktGuru.Products.Domain.Test", "MarktGuru.Products.Domain.Test\MarktGuru.Products.Domain.Test.csproj", "{C3062BC4-7F9F-49A0-84D7-E6168C108C24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarktGuru.Products.Api.Test", "MarktGuru.Products.Api.Test\MarktGuru.Products.Api.Test.csproj", "{3C33BEC8-BC93-4A53-A02E-BFC2625750D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarktGuru.Products.Application.Test", "MarktGuru.Products.Application.Test\MarktGuru.Products.Application.Test.csproj", "{805A7110-B623-4694-BE15-DE083979AEA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A38A7DC-E970-4D3E-8F94-5C77CCF162D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A38A7DC-E970-4D3E-8F94-5C77CCF162D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A38A7DC-E970-4D3E-8F94-5C77CCF162D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A38A7DC-E970-4D3E-8F94-5C77CCF162D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADE0C1A-23AB-4826-BFFF-01087D4A62C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADE0C1A-23AB-4826-BFFF-01087D4A62C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADE0C1A-23AB-4826-BFFF-01087D4A62C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADE0C1A-23AB-4826-BFFF-01087D4A62C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B40F25C-3159-4BAF-BA69-D615EFD00809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B40F25C-3159-4BAF-BA69-D615EFD00809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B40F25C-3159-4BAF-BA69-D615EFD00809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B40F25C-3159-4BAF-BA69-D615EFD00809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788D5709-2952-4845-9D8A-A8A34944CFD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788D5709-2952-4845-9D8A-A8A34944CFD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788D5709-2952-4845-9D8A-A8A34944CFD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788D5709-2952-4845-9D8A-A8A34944CFD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E15DF672-B09E-4076-BA6B-60D90F50F3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15DF672-B09E-4076-BA6B-60D90F50F3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15DF672-B09E-4076-BA6B-60D90F50F3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15DF672-B09E-4076-BA6B-60D90F50F3E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A19E6A-0EC4-46DE-96FE-FD12F0A6E524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A19E6A-0EC4-46DE-96FE-FD12F0A6E524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A19E6A-0EC4-46DE-96FE-FD12F0A6E524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A19E6A-0EC4-46DE-96FE-FD12F0A6E524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3062BC4-7F9F-49A0-84D7-E6168C108C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3062BC4-7F9F-49A0-84D7-E6168C108C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3062BC4-7F9F-49A0-84D7-E6168C108C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3062BC4-7F9F-49A0-84D7-E6168C108C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C33BEC8-BC93-4A53-A02E-BFC2625750D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C33BEC8-BC93-4A53-A02E-BFC2625750D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C33BEC8-BC93-4A53-A02E-BFC2625750D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C33BEC8-BC93-4A53-A02E-BFC2625750D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{805A7110-B623-4694-BE15-DE083979AEA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805A7110-B623-4694-BE15-DE083979AEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805A7110-B623-4694-BE15-DE083979AEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805A7110-B623-4694-BE15-DE083979AEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D7A19E6A-0EC4-46DE-96FE-FD12F0A6E524} = {5FD748C5-F387-4B44-83B0-72C558110E1F}
+		{C3062BC4-7F9F-49A0-84D7-E6168C108C24} = {5FD748C5-F387-4B44-83B0-72C558110E1F}
+		{3C33BEC8-BC93-4A53-A02E-BFC2625750D0} = {5FD748C5-F387-4B44-83B0-72C558110E1F}
+		{805A7110-B623-4694-BE15-DE083979AEA6} = {5FD748C5-F387-4B44-83B0-72C558110E1F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00DE8D7C-6898-45A5-9E6E-D6CEBA2D02BA}
+	EndGlobalSection
+EndGlobal
