@@ -16,6 +16,7 @@ namespace MarktGuru.Products.Application.Extensions
         {
             services.AddHttpContextAccessor();
             services.AddProductDbContext();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             services.AddScoped<IAuthService, AuthService>();
             services.RegisterValidators();
@@ -28,7 +29,8 @@ namespace MarktGuru.Products.Application.Extensions
         public static void RegisterValidators(this IServiceCollection services)
         {
             services.AddFluentValidationAutoValidation();
-            services.AddValidatorsFromAssemblyContaining<GetProductQueryValidator>(); 
+            services.AddFluentValidationClientsideAdapters();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

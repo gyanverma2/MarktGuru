@@ -2,7 +2,7 @@
 Develop a .NET API project (preferably .NET Core) to manage products with typical CRUD operations, allowing users to create, update, and remove products in a database.
 ![image](https://github.com/user-attachments/assets/cd542f9e-f019-4467-9d85-37acb0e627c9)
 
-## Requirments
+## Requirements
 - [x] Authentication: For this demo project, you can hard-code the username and password
 within the system. Database access isn’t necessary for authentication in this case (consider
 usage by web and native clients). [Pull Request] (https://github.com/gyanverma2/MarktGuru/pull/1)
