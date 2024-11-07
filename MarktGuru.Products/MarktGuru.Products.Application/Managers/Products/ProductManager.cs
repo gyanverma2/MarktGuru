@@ -1,4 +1,5 @@
 ﻿using MarktGuru.Products.Application.Data.Products.Queries;
+using MarktGuru.Products.Application.Events;
 using MarktGuru.Products.Application.Handlers.Products.Commands;
 using MarktGuru.Products.Application.Handlers.Products.Queries;
 using MarktGuru.Products.Common.Wrapper;
@@ -24,11 +25,15 @@ namespace MarktGuru.Products.Application.Managers.Products
         }
         public async Task<Product> CreateProductAsync(CreateProductCommand product)
         {
-            return await _mediator.Send(product);
+            var result = await _mediator.Send(product);
+            await _mediator.Publish(new CreateUpdateProductEvent(result.Id, result.Name));
+            return result;
         }
         public async Task<Product> UpdateProductAsync(UpdateProductCommand product)
         {
-            return await _mediator.Send(product);
+            var result = await _mediator.Send(product);
+            await _mediator.Publish(new CreateUpdateProductEvent(result.Id, result.Name));
+            return result;
         }
         public async Task<ProductPrice> UpdateProductPrice(UpdateProductPriceCommand price)
         {
@@ -36,7 +41,9 @@ namespace MarktGuru.Products.Application.Managers.Products
         }
         public async Task<bool> DeleteProductAsync(int id)
         {
-            return await _mediator.Send(new DeleteProductCommand(id));
+            var result =  await _mediator.Send(new DeleteProductCommand(id));
+            await _mediator.Publish(new DeleteProductEvent(id));
+            return result;
         }
     }
 }
